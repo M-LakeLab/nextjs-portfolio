@@ -30,14 +30,21 @@ export default function FadeCarousel({
   const next = () => setIndex((i) => (i + 1) % safeSlides.length)
   const prev = () => setIndex((i) => (i - 1 + safeSlides.length) % safeSlides.length)
 
-  useEffect(() => {
-    if (!autoPlay || isPaused || safeSlides.length <= 1) return
-    timerRef.current && window.clearInterval(timerRef.current)
-    timerRef.current = window.setInterval(next, durationMs)
-    return () => timerRef.current && window.clearInterval(timerRef.current)
-  }, [autoPlay, isPaused, durationMs, safeSlides.length])
+useEffect(() => {
+  if (!autoPlay || isPaused || safeSlides.length <= 1) return;
 
-  if (safeSlides.length === 0) return null
+  if (timerRef.current !== null) {
+    window.clearInterval(timerRef.current);
+  }
+  timerRef.current = window.setInterval(next, durationMs);
+
+  return () => {
+    if (timerRef.current !== null) {
+      window.clearInterval(timerRef.current);
+      timerRef.current = null;
+    }
+  };
+}, [autoPlay, isPaused, durationMs, safeSlides.length]);
 
   const paddingTop = `${(1 / ratio) * 100}%`
 
