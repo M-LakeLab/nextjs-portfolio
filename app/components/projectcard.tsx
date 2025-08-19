@@ -3,7 +3,7 @@ type Project = {
   live: string; code: string; image?: string;
 }
 
-export function ProjectCard(p: Project) {
+export default function ProjectCard(p: Project) {
   return (
     <article className="rounded-2xl border p-5 shadow-sm">
       <h3 className="text-lg font-bold">{p.title}</h3>
