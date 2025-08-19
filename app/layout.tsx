@@ -6,19 +6,34 @@ import { Navbar } from './components/nav'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import Footer from './components/footer'
+import { baseUrl } from './sitemap'
 
-export const metadata = {
-  title: 'M-Lake｜Portfolio',
-  description: 'Next.js / TypeScript / Tailwind で作る開発ポートフォリオ',
-  metadataBase: new URL('https://my-portfolio-k1el5agwf-m-lakelabs-projects.vercel.app'),
-  openGraph: {
-    title: 'M-Lake｜Portfolio',
-    description: 'Next.js / TypeScript / Tailwind',
-    url: '/',
-    siteName: 'M-Lake Portfolio',
-    images: [{ url: '/og.png', width: 1200, height: 630 }],
+export const metadata: Metadata = {
+  metadataBase: new URL(baseUrl),
+  title: {
+    default: 'Next.js Portfolio Starter',
+    template: '%s | Next.js Portfolio Starter',
   },
-  twitter: { card: 'summary_large_image' },
+  description: 'This is my portfolio.',
+  openGraph: {
+    title: 'My Portfolio',
+    description: 'This is my portfolio.',
+    url: baseUrl,
+    siteName: 'My Portfolio',
+    locale: 'en_US',
+    type: 'website',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 }
 
 const cx = (...classes) => classes.filter(Boolean).join(' ')
