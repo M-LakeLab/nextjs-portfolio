@@ -2,7 +2,7 @@
 import { BlogPosts } from 'app/components/posts'
 import TypingText from 'app/components/typingtext'
 import FadeCarousel from './components/fade'
-import { ProjectCard } from './components/projectcard'
+import ProjectCard from './components/projectcard'
 
 const projects = [
   {
@@ -14,11 +14,11 @@ const projects = [
   },  
 ]
 
-export function ProjectList() {
+function ProjectList() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {projects.map((project) => (
-        <ProjectCard key={project.title} {...project} />
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      {projects.map((project, index) => (
+        <ProjectCard key={index} {...project} />
       ))}
     </div>
   )
