@@ -2,6 +2,27 @@
 import { BlogPosts } from 'app/components/posts'
 import TypingText from 'app/components/typingtext'
 import FadeCarousel from './components/fade'
+import { ProjectCard } from './components/projectcard'
+
+const projects = [
+  {
+    title: 'My Portfolio',
+    desc: 'Next.js / TypeScript / Tailwindで作成したポートフォリオサイトです。',
+    tech: ['Next.js', 'TypeScript', 'Tailwind CSS'],
+    live: 'https://my-portfolio-k1el5agwf-m-lakelabs-projects.vercel.app',
+    code: 'https://github.com/m-lakelabs/my-portfolio',
+  },  
+]
+
+export function ProjectList() {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {projects.map((project) => (
+        <ProjectCard key={project.title} {...project} />
+      ))}
+    </div>
+  )
+}
 
 export default function Page() {
   return (
