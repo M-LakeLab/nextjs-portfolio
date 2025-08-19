@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from 'react'
 
 const TypingText = ({ text, speed = 100 }: { text: string; speed?: number }) => {
   const [displayedText, setDisplayedText] = useState('')
-  const chars = useMemo(() => [...text], [text]) // Unicode対応を維持
+  const chars = useMemo(() => Array.from(text), [text]) // Unicode対応を維持
 
   useEffect(() => {
     setDisplayedText('') // リセット
