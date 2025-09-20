@@ -10,7 +10,12 @@ export default function ProjectCard(p: Project) {
       <p className="text-sm text-gray-600 mt-1">{p.desc}</p>
       <div className="mt-3 flex flex-wrap gap-2">
         {p.tech.map(t => (
-          <span key={t} className="text-xs rounded-full border px-2 py-1">{t}</span>
+          <span key={t} 
+            className="text-xs rounded-full px-2 py-1
+                      bg-neutral-200 text-neutral-800 border border-neutral-300
+                      dark:bg-neutral-700 dark:text-neutral-200 dark:border-neutral-600"
+          >
+                    {t}</span>
         ))}
       </div>
       <div className="mt-4 flex gap-3">
@@ -20,3 +25,4 @@ export default function ProjectCard(p: Project) {
     </article>
   )
 }
+

@@ -50,7 +50,7 @@ const projects: Project[] = [
   {
     title: 'Next.js ポートフォリオ',
     description: 'このサイト。Markdownブログ／RSS／Sitemap／カルーセルを実装。',
-    href: 'https://my-portfolio.vercel.app',
+    href: 'https://github.com/M-LakeLab',
     tags: ['Next.js', 'TypeScript', 'Tailwind'],
   },
 ]
@@ -59,7 +59,7 @@ const projects: Project[] = [
 
 // ---- Page Component ----
 export default async function Page() {
-  const latest = getBlogPosts().slice(0, 3)
+  const latest = getBlogPosts().reverse().slice(0, 3)
   return (
     <div className="flex flex-col items-center">
       {/* カルーセル */}
@@ -85,7 +85,7 @@ export default async function Page() {
           <br />
           私が今学習していること、学んだことを書いていきます！<br />
           ぜひご覧ください！<br />
-        </p>
+        </p>  
 
                 {/* Latest blog posts (3 items) */}
         <div className="my-8">
