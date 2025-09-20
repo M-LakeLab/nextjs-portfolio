@@ -31,9 +31,9 @@ export function BlogPosts() {
             <h2 className="text-lg font-semibold text-neutral-900 dark:text-neutral-100 tracking-tight">
               {post.metadata.title}
             </h2>
-            {post.metadata.description && (
+            {post.metadata.summary && (
               <p className="mt-2 text-sm text-neutral-700 dark:text-neutral-300 line-clamp-3">
-                {post.metadata.description}
+                {post.metadata.summary}
               </p>
             )}
           </Link>
